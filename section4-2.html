@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0
+    ,maximum-scale=1,minimum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            }
+        html{
+            height: 100%;
+        }
+        body{
+            background-color: aqua;
+
+            z-index: 1;
+        }
+        .img1{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 1px;
+            z-index: 2;
+        }
+    
+    </style>
+   
+</head>
+<body>
+    <div class="q">
+        <img src="img/冬.png" alt="" class="img1">
+    </div>
+     <script>
+       const a=document.querySelector('.img1')
+       let Y
+       a.addEventListener("touchstart",(e)=>{
+       e.preventDefault(); // 阻止默认行为，如滚动或缩放
+        Y = e.touches[0].pageY; // 获取触点相对于页面的 Y 坐标
+       })
+       a.addEventListener("touchmove",(e)=>{
+       e.preventDefault(); // 阻止默认行为，如滚动或缩放
+       var y = e.touches[0].pageY; // 获取触点相对于页面的 Y 坐标
+       a.style.top =y-Y+'px'
+
+       })
+   
+    </script>
+    
+</body>
+</html>
